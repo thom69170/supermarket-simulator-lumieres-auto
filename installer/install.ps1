@@ -30,17 +30,44 @@ function Find-GameDir {
 Write-Host ""
 Write-Host "=== Lumieres Auto - $(if ($Uninstall) {'desinstallation'} else {'installation'}) ===" -ForegroundColor Cyan
 
-if (-not $GameDir) { $GameDir = Find-GameDir }
+function Pick-Folder {
+    try {
+        Add-Type -AssemblyName System.Windows.Forms
+        $d = New-Object System.Windows.Forms.FolderBrowserDialog
+        $d.Description = "Choisis le dossier du jeu (celui qui contient '$GameName.exe')"
+        $d.ShowNewFolderButton = $false
+        if ($d.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) { return $d.SelectedPath }
+        return $null
+    }
+    catch {
+        $p = Read-Host "Colle ici le chemin du dossier du jeu (vide pour annuler)"
+        return $p.Trim('" ')
+    }
+}
+
 if (-not $GameDir) {
-    Write-Host "Je n'ai pas trouve le jeu automatiquement."
-    Write-Host "Dans Steam : clic droit sur le jeu > Gerer > Parcourir les fichiers locaux, puis copie le chemin du dossier."
-    $GameDir = (Read-Host "Colle ici le chemin du dossier du jeu").Trim('" ')
+    $found = Find-GameDir
+    if ($found) {
+        Write-Host "Jeu trouve : $found"
+        $a = Read-Host "Appuie sur Entree pour utiliser ce dossier, ou tape N pour en choisir un autre"
+        if ($a -notmatch '^\s*(n|non)\s*$') { $GameDir = $found }
+    }
+    else {
+        Write-Host "Je n'ai pas trouve le jeu automatiquement."
+        Write-Host "(Dans Steam : clic droit sur le jeu > Gerer > Parcourir les fichiers locaux.)"
+    }
 }
-if (-not (Test-Path (Join-Path $GameDir "$GameName.exe"))) {
-    Write-Host "Erreur : '$GameName.exe' est introuvable dans : $GameDir" -ForegroundColor Red
-    exit 1
+while (-not $GameDir -or -not (Test-Path (Join-Path $GameDir "$GameName.exe"))) {
+    if ($GameDir) {
+        Write-Host "'$GameName.exe' est introuvable dans : $GameDir" -ForegroundColor Yellow
+        $r = Read-Host "Entree pour choisir un autre dossier, ou Q pour quitter"
+        if ($r -match '^\s*q') { exit 1 }
+    }
+    Write-Host "Une fenetre va s'ouvrir : choisis le dossier du jeu."
+    $GameDir = Pick-Folder
+    if (-not $GameDir) { Write-Host "Annule." -ForegroundColor Red; exit 1 }
 }
-Write-Host "Jeu trouve : $GameDir"
+Write-Host "Dossier du jeu : $GameDir"
 
 if (Get-Process -Name $GameName -ErrorAction SilentlyContinue) {
     Write-Host "Erreur : le jeu est ouvert. Ferme-le puis relance l'installateur." -ForegroundColor Red

@@ -1,4 +1,4 @@
-LUMIERES AUTO - addon pour Supermarket Simulator (version 1.0.0)
+LUMIERES AUTO - addon pour Supermarket Simulator (version 1.0.1)
 =================================================================
 
 Allume tout seul les lumieres du magasin :

@@ -1,6 +1,6 @@
-# Fabrique les zips dans dist\. Prerequis : "dotnet build -c Release" deja fait.
+﻿# Fabrique les zips dans dist\. Prerequis : "dotnet build -c Release" deja fait.
 # BepInEx (IL2CPP, win x64) est telecharge depuis builds.bepinex.dev s'il n'est pas deja dans dist\bepinex.
-param([string]$Version = "1.0.0")
+param([string]$Version = "1.0.1")
 $ErrorActionPreference = "Stop"
 Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
 $root = $PSScriptRoot

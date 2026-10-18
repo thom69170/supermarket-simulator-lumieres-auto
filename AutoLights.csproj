@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>AutoLights</AssemblyName>
+    <NoStdLib>true</NoStdLib>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TestGame>$(USERPROFILE)\Desktop\Supermarket Addons\jeu-de-test</TestGame>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(TestGame)\dotnet\*.dll" Exclude="$(TestGame)\dotnet\coreclr.dll;$(TestGame)\dotnet\clrjit.dll;$(TestGame)\dotnet\hostpolicy.dll;$(TestGame)\dotnet\dbgshim.dll;$(TestGame)\dotnet\clretwrc.dll;$(TestGame)\dotnet\mscordaccore.dll;$(TestGame)\dotnet\mscordbi.dll;$(TestGame)\dotnet\hostfxr.dll;$(TestGame)\dotnet\System.Private.CoreLib.dll"><Private>false</Private></Reference>
+    <Reference Include="$(TestGame)\dotnet\System.Private.CoreLib.dll"><Private>false</Private></Reference>
+    <Reference Include="$(TestGame)\BepInEx\core\BepInEx.Core.dll"><Private>false</Private></Reference>
+    <Reference Include="$(TestGame)\BepInEx\core\BepInEx.Unity.IL2CPP.dll"><Private>false</Private></Reference>
+    <Reference Include="$(TestGame)\BepInEx\core\Il2CppInterop.Runtime.dll"><Private>false</Private></Reference>
+    <Reference Include="$(TestGame)\BepInEx\core\Il2CppInterop.Common.dll"><Private>false</Private></Reference>
+    <Reference Include="$(TestGame)\BepInEx\core\0Harmony.dll"><Private>false</Private></Reference>
+    <Reference Include="$(TestGame)\BepInEx\interop\*.dll"><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,41 @@
+LUMIERES AUTO - addon pour Supermarket Simulator (version 1.0.0)
+=================================================================
+
+Allume tout seul les lumieres du magasin :
+  - des que tu ouvres le magasin, ou
+  - a partir d'une heure du jeu que tu choisis.
+Reglages dans le menu pause (Echap) -> bouton "Lumieres auto".
+Les lumieres sont allumees une seule fois par journee : si tu les eteins
+ensuite a la main, l'addon ne les rallume pas.
+
+INSTALLATION AUTOMATIQUE (Windows, jeu Steam)
+---------------------------------------------
+1. Decompresse TOUT le zip dans un dossier (clic droit > Extraire tout).
+2. Ferme le jeu.
+3. Double-clique sur INSTALLER.bat. Il trouve le jeu tout seul.
+   (Si Windows affiche "Windows a protege votre ordinateur" : clique sur
+   "Informations complementaires" puis "Executer quand meme".)
+4. Lance le jeu depuis Steam. Le TOUT PREMIER lancement est long
+   (1 a 3 minutes d'ecran fige ou noir) : c'est normal.
+
+INSTALLATION A LA MAIN
+----------------------
+Copie le CONTENU du dossier "fichiers" dans le dossier du jeu
+(Steam > clic droit sur le jeu > Gerer > Parcourir les fichiers locaux).
+Si tu as deja BepInEx 6 (IL2CPP), copie seulement
+fichiers\BepInEx\plugins\AutoLights.dll dans BepInEx\plugins du jeu.
+
+DESINSTALLATION
+---------------
+Double-clique sur DESINSTALLER.bat (retire l'addon). Pour retirer aussi
+BepInEx : supprime dans le dossier du jeu les dossiers "BepInEx" et
+"dotnet" et les fichiers "winhttp.dll", "doorstop_config.ini",
+".doorstop_version" et "changelog.txt".
+
+A SAVOIR
+--------
+- Teste avec la version Steam v1.7.2. Une mise a jour du jeu peut casser
+  l'addon ou BepInEx (version experimentale 6.0.0-be.789).
+- En multijoueur, l'addon n'a pas ete teste.
+- Si le jeu plante au lancement, desinstalle : le jeu redevient normal.
+- Aucun lien avec les createurs du jeu. Utilisation a tes risques.

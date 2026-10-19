@@ -1,5 +1,12 @@
 # Lumieres Auto - addon pour Supermarket Simulator
 
+> ## ⚠️ Pour installer : va dans **Releases**, pas dans le bouton vert « Code > Download ZIP »
+> Le zip du bouton « Code » ne contient que le code source (il manque BepInEx et l'addon compile).
+> 1. Ouvre la page **[Releases](../../releases/latest)** (colonne de droite de la page du depot).
+> 2. Sous **Assets**, telecharge `LumieresAuto-vX.Y.Z-complet.zip`.
+> 3. Extrais tout, puis double-clique sur `INSTALLER.bat`.
+
+
 Allume automatiquement les lumieres du magasin, a l'ouverture ou a une heure choisie.
 Reglages dans le menu pause (Echap) > **Lumieres auto**.
 
